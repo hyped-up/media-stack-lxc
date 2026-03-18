@@ -148,7 +148,7 @@ prompt_storage() {
 prompt_services() {
     local services
     services=$(dialog --stdout --separate-output --checklist \
-        "Select services to install:" 20 70 11 \
+        "Select services to install:" 20 70 12 \
         "sonarr" "TV show automation" on \
         "radarr" "Movie automation" on \
         "prowlarr" "Indexer manager" on \
@@ -157,6 +157,7 @@ prompt_services() {
         "sabnzbd" "Usenet downloader" on \
         "qbittorrent" "Torrent client" on \
         "seerr" "Media requests (modern Overseerr)" on \
+        "ombi" "Media requests (alternative)" off \
         "tautulli" "Plex monitoring" on \
         "dozzle" "Log viewer" on)
     
@@ -208,8 +209,14 @@ set_service_defaults() {
     fi
     
     # Seerr defaults
+    
+    # Ombi defaults
+    if grep -q "ombi" <<< "$services"; then
+        echo "OMBI_DEFAULT_PERMS=user" >> "$CONFIG_FILE"
+    fi
     if grep -q "seerr" <<< "$services"; then
         echo "SEERR_DEFAULT_PERMS=user" >> "$CONFIG_FILE"
+OMBI_DEFAULT_PERMS=${OMBI_DEFAULT_PERMS:-user}
     fi
     
     log "✓ Defaults applied"
@@ -287,6 +294,9 @@ show_config_summary() {
         summary+="qBittorrent: Port ${QBITTORRENT_PORT}, VPN: ${QBITTORRENT_VPN}\n"
     fi
     if grep -q "seerr" <<< "$SERVICES"; then
+    if grep -q "ombi" <<< "$SERVICES"; then
+        summary+="Ombi: Default perms: ${OMBI_DEFAULT_PERMS}\n"
+    fi
         summary+="Seerr: Default perms: ${SEERR_DEFAULT_PERMS}\n"
     fi
     
@@ -447,6 +457,7 @@ PROWLARR_SYNC=${PROWLARR_SYNC:-full}
 QBITTORRENT_PORT=${QBITTORRENT_PORT:-8080}
 QBITTORRENT_VPN=${QBITTORRENT_VPN:-no}
 SEERR_DEFAULT_PERMS=${SEERR_DEFAULT_PERMS:-user}
+OMBI_DEFAULT_PERMS=${OMBI_DEFAULT_PERMS:-user}
 EOF
     
     if [[ "${USE_CLOUDFLARE}" == "yes" ]]; then
@@ -675,7 +686,16 @@ show_summary() {
         echo -e "  • Radarr:    https://radarr.${DOMAIN}"
     fi
     if grep -q "seerr" <<< "${SERVICES}"; then
+    if grep -q "ombi" <<< "${SERVICES}"; then
+        echo -e "  • Ombi:      https://ombi.${DOMAIN}"
+    fi
         echo -e "  • Seerr:     https://seerr.${DOMAIN}"
+    if grep -q "ombi" <<< "${SERVICES}"; then
+        echo -e "  • Ombi:      https://ombi.${DOMAIN}"
+    fi
+    fi
+    if grep -q "ombi" <<< "${SERVICES}"; then
+        echo -e "  • Ombi:      https://ombi.${DOMAIN}"
     fi
     
     echo ""

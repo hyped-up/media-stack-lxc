@@ -26,6 +26,7 @@ Deploys a **fully configured media server** with:
 ### Management & Monitoring
 - **Tautulli** — Plex monitoring & stats
 - **Seerr** — Modern media request management (Overseerr fork)
+- **Ombi** — Alternative media request platform
 - **Dozzle** — Container log viewer
 
 ## Features

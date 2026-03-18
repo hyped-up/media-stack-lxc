@@ -17,3 +17,6 @@
 # Test environments
 test-env/
 *.test
+
+# Project planning files
+CLAUDE.md

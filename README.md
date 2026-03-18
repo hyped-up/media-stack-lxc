@@ -64,6 +64,13 @@ Traefik (reverse proxy)
 
 All services on isolated Docker network (`proxy`), secured with Traefik TLS.
 
+## Documentation
+
+- [Quick Start Guide](docs/QUICK_START.md) - 5-minute deployment
+- [**Cloudflare Setup**](docs/CLOUDFLARE_SETUP.md) - Why Cloudflare + complete setup instructions
+- [Wizard Walkthrough](docs/WIZARD_WALKTHROUGH.md) - Visual guide to installer
+
+
 ## Quick Start
 
 ### 1. Create Proxmox LXC Container

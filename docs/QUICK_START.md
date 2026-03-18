@@ -65,7 +65,7 @@ The TUI will ask for:
 
 #### 1. Domain Name
 ```
-Enter your base domain (e.g., hypebeastin.com):
+Enter your base domain (e.g., yourdomain.com):
 > yourdomain.com
 ```
 

@@ -35,7 +35,7 @@
 ┌────────── Domain Configuration ───────────────┐
 │                                               │
 │  Enter your base domain (e.g.,                │
-│  hypebeastin.com):                            │
+│  yourdomain.com):                            │
 │                                               │
 │  Services will be accessible at:              │
 │  • plex.yourdomain.com                        │
@@ -48,7 +48,7 @@
 └───────────────────────────────────────────────┘
 ```
 
-**What you enter:** `hypebeastin.com` (your domain)
+**What you enter:** `yourdomain.com` (your domain)
 
 ---
 
@@ -422,7 +422,7 @@ If **Yes**, you'll see:
 ```
 ┌────────── Configuration Summary ──────────────┐
 │                                               │
-│  Domain: hypebeastin.com                      │
+│  Domain: yourdomain.com                      │
 │  Cloudflare Tunnel: yes                       │
 │  Storage: NFS (10.0.0.8)                      │
 │                                               │
@@ -508,15 +508,15 @@ After confirmation, you'll see real-time logs:
 
 Services accessible at:
 
-  • Plex:      https://plex.hypebeastin.com
-  • Portainer: https://portainer.hypebeastin.com
-  • Sonarr:    https://sonarr.hypebeastin.com
-  • Radarr:    https://radarr.hypebeastin.com
-  • Prowlarr:  https://prowlarr.hypebeastin.com
-  • Seerr:     https://seerr.hypebeastin.com
+  • Plex:      https://plex.yourdomain.com
+  • Portainer: https://portainer.yourdomain.com
+  • Sonarr:    https://sonarr.yourdomain.com
+  • Radarr:    https://radarr.yourdomain.com
+  • Prowlarr:  https://prowlarr.yourdomain.com
+  • Seerr:     https://seerr.yourdomain.com
 
 Next steps:
-  1. Configure Plex libraries at plex.hypebeastin.com
+  1. Configure Plex libraries at plex.yourdomain.com
   2. Add indexers in Prowlarr
   3. Connect apps in Prowlarr → Sonarr/Radarr
 

@@ -121,7 +121,8 @@ Select what you want (use Space to toggle):
 [ ] lidarr       Music automation
 [X] sabnzbd      Usenet downloader
 [X] qbittorrent  Torrent client
-[X] overseerr    Media requests
+[X] seerr       Media requests (modern Overseerr)
+[ ] ombi        Media requests (alternative)
 [X] tautulli     Plex monitoring
 [X] dozzle       Log viewer
 [X] heimdall     Dashboard
@@ -262,7 +263,8 @@ docker exec plex nvidia-smi
 
 ## Next Steps
 
-- **Overseerr**: User-friendly request interface for Plex users
+- **Seerr**: Modern media request interface for Plex users
+- **Ombi**: Alternative request platform (optional)
 - **Tautulli**: Monitor who's watching what, generate stats
 - **Heimdall**: Beautiful dashboard for all services
 - **Authentik**: Add SSO to protect everything (advanced)

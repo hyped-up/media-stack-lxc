@@ -193,10 +193,10 @@
 │  [ ] lidarr       Music automation        ←─  │
 │  [X] sabnzbd      Usenet downloader           │
 │  [X] qbittorrent  Torrent client              │
-│  [X] overseerr    Media requests              │
+│  [X] seerr       Media requests (modern Overseerr)              │
 │  [X] tautulli     Plex monitoring             │
 │  [X] dozzle       Log viewer                  │
-│  [X] heimdall     Dashboard                   │
+│  [ ] ombi        Media requests (alternative)                   │
 │                                               │
 │              < OK >    < Cancel >             │
 └───────────────────────────────────────────────┘
@@ -378,10 +378,10 @@ If **Yes**, you'll see:
 
 ---
 
-#### 9i: Overseerr Permissions
+#### 9i: Seerr Permissions
 
 ```
-┌────────── Overseerr: Default User Permissions ─┐
+┌────────── Seerr: Default User Permissions ─┐
 │                                               │
 │  admin      Admin (full control)              │
 │  user       User (request + manage own)       │
@@ -432,10 +432,9 @@ If **Yes**, you'll see:
 │    • bazarr                                   │
 │    • sabnzbd                                  │
 │    • qbittorrent                              │
-│    • overseerr                                │
+│    • seerr                                │
 │    • tautulli                                 │
 │    • dozzle                                   │
-│    • heimdall                                 │
 │                                               │
 │  GPU: intel                                   │
 │                                               │
@@ -513,7 +512,7 @@ Services accessible at:
   • Sonarr:    https://sonarr.hypebeastin.com
   • Radarr:    https://radarr.hypebeastin.com
   • Prowlarr:  https://prowlarr.hypebeastin.com
-  • Overseerr: https://overseerr.hypebeastin.com
+  • Seerr:     https://seerr.hypebeastin.com
 
 Next steps:
   1. Configure Plex libraries at plex.hypebeastin.com

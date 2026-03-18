@@ -303,3 +303,25 @@ MIT
 ---
 
 **Ready to deploy your own media empire? Let's go. 🚀**
+
+### Advanced Services
+
+#### Notifiarr (Optional)
+**⚠️ Complex Setup Required**
+
+Notifiarr provides Discord notifications for your media stack (new downloads, requests, server issues, etc.).
+
+**Why it's marked advanced:**
+- Requires Notifiarr account + API key
+- Needs Discord webhook configuration
+- Must configure per-app integrations
+- Can be overwhelming for beginners
+
+**Post-install steps:**
+1. Sign up at [notifiarr.com](https://notifiarr.com)
+2. Get API key from dashboard
+3. Add to `/opt/docker/.env`: `NOTIFIARR_API_KEY=your_key`
+4. Configure Discord webhooks
+5. Connect to Sonarr/Radarr/etc in Notifiarr dashboard
+
+**Recommended:** Skip during initial setup, add later once your stack is stable.

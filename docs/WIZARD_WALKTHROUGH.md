@@ -197,6 +197,7 @@
 │  [X] tautulli     Plex monitoring             │
 │  [X] dozzle       Log viewer                  │
 │  [ ] ombi        Media requests (alternative)                   │
+│  [ ] notifiarr   Discord notifications (advanced)│
 │                                               │
 │              < OK >    < Cancel >             │
 └───────────────────────────────────────────────┘

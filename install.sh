@@ -148,7 +148,7 @@ prompt_storage() {
 prompt_services() {
     local services
     services=$(dialog --stdout --separate-output --checklist \
-        "Select services to install:" 20 70 12 \
+        "Select services to install:" 20 70 13 \
         "sonarr" "TV show automation" on \
         "radarr" "Movie automation" on \
         "prowlarr" "Indexer manager" on \
@@ -158,6 +158,7 @@ prompt_services() {
         "qbittorrent" "Torrent client" on \
         "seerr" "Media requests (modern Overseerr)" on \
         "ombi" "Media requests (alternative)" off \
+        "notifiarr" "Discord notifications (advanced)" off \
         "tautulli" "Plex monitoring" on \
         "dozzle" "Log viewer" on)
     
@@ -211,12 +212,19 @@ set_service_defaults() {
     # Seerr defaults
     
     # Ombi defaults
+    
+    # Notifiarr defaults
+    if grep -q "notifiarr" <<< "$services"; then
+        echo "NOTIFIARR_API_KEY=" >> "$CONFIG_FILE"
+    fi
     if grep -q "ombi" <<< "$services"; then
         echo "OMBI_DEFAULT_PERMS=user" >> "$CONFIG_FILE"
+NOTIFIARR_API_KEY=${NOTIFIARR_API_KEY:-}
     fi
     if grep -q "seerr" <<< "$services"; then
         echo "SEERR_DEFAULT_PERMS=user" >> "$CONFIG_FILE"
 OMBI_DEFAULT_PERMS=${OMBI_DEFAULT_PERMS:-user}
+NOTIFIARR_API_KEY=${NOTIFIARR_API_KEY:-}
     fi
     
     log "✓ Defaults applied"
@@ -295,6 +303,9 @@ show_config_summary() {
     fi
     if grep -q "seerr" <<< "$SERVICES"; then
     if grep -q "ombi" <<< "$SERVICES"; then
+    if grep -q "notifiarr" <<< "$SERVICES"; then
+        summary+="Notifiarr: API key required (configure post-install)\n"
+    fi
         summary+="Ombi: Default perms: ${OMBI_DEFAULT_PERMS}\n"
     fi
         summary+="Seerr: Default perms: ${SEERR_DEFAULT_PERMS}\n"
@@ -458,6 +469,7 @@ QBITTORRENT_PORT=${QBITTORRENT_PORT:-8080}
 QBITTORRENT_VPN=${QBITTORRENT_VPN:-no}
 SEERR_DEFAULT_PERMS=${SEERR_DEFAULT_PERMS:-user}
 OMBI_DEFAULT_PERMS=${OMBI_DEFAULT_PERMS:-user}
+NOTIFIARR_API_KEY=${NOTIFIARR_API_KEY:-}
 EOF
     
     if [[ "${USE_CLOUDFLARE}" == "yes" ]]; then
@@ -687,15 +699,42 @@ show_summary() {
     fi
     if grep -q "seerr" <<< "${SERVICES}"; then
     if grep -q "ombi" <<< "${SERVICES}"; then
+    if grep -q "notifiarr" <<< "${SERVICES}"; then
+        echo -e "  • Notifiarr: https://notifiarr.${DOMAIN}"
+    fi
         echo -e "  • Ombi:      https://ombi.${DOMAIN}"
+    if grep -q "notifiarr" <<< "${SERVICES}"; then
+        echo -e "  • Notifiarr: https://notifiarr.${DOMAIN}"
+    fi
+    fi
+    if grep -q "notifiarr" <<< "${SERVICES}"; then
+        echo -e "  • Notifiarr: https://notifiarr.${DOMAIN}"
     fi
         echo -e "  • Seerr:     https://seerr.${DOMAIN}"
     if grep -q "ombi" <<< "${SERVICES}"; then
+    if grep -q "notifiarr" <<< "${SERVICES}"; then
+        echo -e "  • Notifiarr: https://notifiarr.${DOMAIN}"
+    fi
         echo -e "  • Ombi:      https://ombi.${DOMAIN}"
+    if grep -q "notifiarr" <<< "${SERVICES}"; then
+        echo -e "  • Notifiarr: https://notifiarr.${DOMAIN}"
+    fi
+    fi
+    if grep -q "notifiarr" <<< "${SERVICES}"; then
+        echo -e "  • Notifiarr: https://notifiarr.${DOMAIN}"
     fi
     fi
     if grep -q "ombi" <<< "${SERVICES}"; then
+    if grep -q "notifiarr" <<< "${SERVICES}"; then
+        echo -e "  • Notifiarr: https://notifiarr.${DOMAIN}"
+    fi
         echo -e "  • Ombi:      https://ombi.${DOMAIN}"
+    if grep -q "notifiarr" <<< "${SERVICES}"; then
+        echo -e "  • Notifiarr: https://notifiarr.${DOMAIN}"
+    fi
+    fi
+    if grep -q "notifiarr" <<< "${SERVICES}"; then
+        echo -e "  • Notifiarr: https://notifiarr.${DOMAIN}"
     fi
     
     echo ""

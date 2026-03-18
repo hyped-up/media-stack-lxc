@@ -123,6 +123,7 @@ Select what you want (use Space to toggle):
 [X] qbittorrent  Torrent client
 [X] seerr       Media requests (modern Overseerr)
 [ ] ombi        Media requests (alternative)
+[ ] notifiarr   Discord notifications (advanced)
 [X] tautulli     Plex monitoring
 [X] dozzle       Log viewer
 [X] heimdall     Dashboard
@@ -274,3 +275,33 @@ Full documentation: [docs/ARCHITECTURE.md](ARCHITECTURE.md)
 ---
 
 **You now have a production-grade media server. Enjoy! 🍿**
+
+## Advanced: Notifiarr Setup
+
+**⚠️ Only recommended after your basic stack is working**
+
+Notifiarr sends Discord notifications for downloads, requests, and server events.
+
+### Prerequisites
+1. [Notifiarr account](https://notifiarr.com) (free tier available)
+2. Discord server where you're admin
+3. Basic understanding of webhooks
+
+### Setup Steps
+1. Get API key from Notifiarr dashboard
+2. Edit `/opt/docker/.env`:
+   ```bash
+   NOTIFIARR_API_KEY=your_api_key_here
+   ```
+3. Restart Notifiarr: `docker restart notifiarr`
+4. Configure Discord webhooks in Notifiarr dashboard
+5. Add integrations for Sonarr/Radarr/Plex/etc
+
+### What You Get
+- New download notifications
+- Request approvals via Discord
+- Server health alerts
+- Plex stream notifications
+- Custom triggers/events
+
+**Tip:** Start with just one or two notification types, then expand as you get comfortable.

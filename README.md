@@ -68,6 +68,7 @@ All services on isolated Docker network (`proxy`), secured with Traefik TLS.
 
 - [Quick Start Guide](docs/QUICK_START.md) - 5-minute deployment
 - [**Cloudflare Setup**](docs/CLOUDFLARE_SETUP.md) - Why Cloudflare + complete setup instructions
+- [CNAME [Wizard Walkthrough] DNS Guide](docs/CNAME_GUIDE.md) - How domains and routing work
 - [Wizard Walkthrough](docs/WIZARD_WALKTHROUGH.md) - Visual guide to installer
 
 

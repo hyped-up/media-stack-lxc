@@ -1,0 +1,19 @@
+# Logs
+*.log
+
+# Temporary files
+/tmp/
+*.tmp
+*.swp
+
+# macOS
+.DS_Store
+
+# IDEs
+.vscode/
+.idea/
+*.iml
+
+# Test environments
+test-env/
+*.test
